@@ -1,4 +1,4 @@
-package com.discordtriviabot.triviabot.trivia_bot;
+package com.iyn.triviabot.trivia_bot;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.discordtriviabot.triviabot.trivia_bot;
+package com.iyn.triviabot.trivia_bot;
 
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;

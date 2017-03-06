@@ -1,4 +1,4 @@
-package com.discordtriviabot.triviabot.trivia_bot;
+package com.iyn.triviabot.trivia_bot;
 
 import java.util.Map;
 
@@ -63,6 +63,7 @@ public class TriviaGame {
 		
 		if (currentSession.getMaxScoringPlayer().getValue() >= currentSessionMaxScore) {
 			endGameMessage = "**__Game has ended!__ " + currentSession.getMaxScoringPlayer().getKey() + " won!**\n";
+			currentSession.awardPrizes();
 		} else if (currentSession.getEmptyQuestions() >= 5) {
 			endGameMessage = "The game was automatically terminated after 5 nonanswered questions.\n";
 		}

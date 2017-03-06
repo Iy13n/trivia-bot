@@ -1,4 +1,4 @@
-package com.discordtriviabot.triviabot.trivia_bot;
+package com.iyn.triviabot.trivia_bot;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -6,13 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
-import java.io.FileNotFoundException;
-
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
-
-import sx.blah.discord.handle.obj.IUser;
-import sx.blah.discord.api.IDiscordClient;
 
 public class TriviaUser {
 	

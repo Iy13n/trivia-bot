@@ -1,4 +1,4 @@
-package com.discordtriviabot.triviabot.trivia_bot;
+package com.iyn.triviabot.trivia_bot;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -117,5 +117,27 @@ public class TriviaSession {
 			}
 		}
 		return ret;
+	}
+	
+	public void awardPrizes() {
+		if (players.size() <= 2) {
+			for (HashMap.Entry<IUser, Integer> entry : players.entrySet()) {
+				TriviaUser currUser = new TriviaUser(entry.getKey().getID(),
+							entry.getKey().getName() + "#" + entry.getKey().getDiscriminator());
+				if (entry.getKey().equals(getMaxScoringPlayer().getKey())) {
+					currUser.addWin();
+				}
+				currUser.addExp(entry.getValue()*5);
+			}
+		} else if (players.size() > 2) {
+			for (HashMap.Entry<IUser, Integer> entry : players.entrySet()) {
+				TriviaUser currUser = new TriviaUser(entry.getKey().getID(),
+							entry.getKey().getName() + "#" + entry.getKey().getDiscriminator());
+				if (entry.getKey().equals(getMaxScoringPlayer().getKey())) {
+					currUser.addWin();
+				}
+				currUser.addExp(entry.getValue()*10);
+			}
+		}
 	}
 }
