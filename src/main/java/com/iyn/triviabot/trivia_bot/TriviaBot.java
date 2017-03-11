@@ -1,5 +1,8 @@
 package com.iyn.triviabot.trivia_bot;
 
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventDispatcher;
@@ -13,8 +16,6 @@ public class TriviaBot implements IModule{
 	private String moduleMinimumVersion = "2.3.0";
 	private String author = "IYN";
 	
-	private static String token = "MjYyMjUzNjA5ODk3NTU4MDE2.C0BSWA.3BdBG9fKi6utSVqMLegMPcspnJw";
-	
 	public static TriviaBot INSTANCE; // Singleton instance of the bot.
 	public static IDiscordClient client; // The instance of the discord client.
 	
@@ -25,8 +26,16 @@ public class TriviaBot implements IModule{
 	}
 	
 	public static void main(String[] args) { // Main method
-		INSTANCE = login(token); // Creates the bot instance and logs it in.
-		INSTANCE.enable(client);
+		Scanner s;
+		try {
+			s = new Scanner(new File("token.txt"));
+			INSTANCE = login(s.nextLine()); // Creates the bot instance and logs it in.
+			INSTANCE.enable(client);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public static TriviaBot login(String token) {
